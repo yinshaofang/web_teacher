@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <!--配置properties文件位置	-->
+    <properties resource="datasource.properties"></properties>
+    <settings>
+        <!--<setting name="logImpl" value="log4j"/>-->
+        <!--还可使用mybatis官方提供的日志，不用添加log4j的jar包和配置文件-->
+        <setting name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <typeAliases>
+        <!--<typeAlias type="day1.entity.User" alias="user"/>-->
+        <package name="day3.entity"/>
+    </typeAliases>
+    <!--default用来选择使用哪一套配置-->
+    <environments default="mysql">
+        <!--environment标签可以有多个，用来配置多个数据库支持,但其id不能重复-->
+        <environment id="mysql">
+            <!-- 事务管理器,jdbc:使用jdbc的事务,
+            MANAGED:表示mybatis对于事务什么都不作，交给其他框架处理-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 连接信息
+            1.type的值：
+                unpooled:不使用连接池，只用来打开和关闭连接
+                pooled:使用连接池
+                jndi:向其他框架获取连接-->
+            <dataSource type="unpooled">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+    <mappers>
+        <mapper resource="day3/mapper/orderMapper.xml"/>
+        <mapper resource="day3/mapper/itemMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1() {
+            var index=s1.selectedIndex;
+            var option=s1.options[index];
+            console.log("你选择："+option.value+","+option.text+",index="+index);
+        }
+        function f2() {
+            //方法一
+            var o = document.createElement("option");
+            o.value="4";
+            o.innerHTML="a4";
+            //s1.appendChild(o);
+            //方法二
+            //s1.innerHTML=s1.innerHTML+"<option value='4'>a4</option>";
+
+            //方法三
+            var o = new Option('a4',4);
+            s1.options[s1.length]=o;
+        }
+
+        function f3() {
+            var index=prompt("请输入你要删除的索引:");
+            //删除一个
+            //s1.options[index]=null;
+            //删除全部
+            s1.length=0;
+        }
+
+    </script>
+</head>
+<body>
+    <select id="s1" style="width: 300px;font-size: 30px; color: red;" onchange="f1();">
+        <option value="1">a1</option>
+        <option value="2">a2</option>
+        <option value="3">a3</option>
+    </select><br>
+    <a href="javascript:;" onclick="f2();">添加选项</a><br>
+    <a href="javascript:;" onclick="f3();">删除选项</a><br>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function mymove() {
+                var obj = document.getElementById("d");
+                var x = Math.floor(Math.random()*100);//50
+                var y = Math.floor(Math.random()*100);//70
+                obj.style.left = x+"px";
+                obj.style.top = y+"px";
+            }
+            var task;
+            function f1() {
+                clearTimeout(task);
+                task = setInterval(mymove,500);
+                setTimeout(function () {
+                    clearInterval(task);
+                },5000);
+            }
+
+            function op() {
+                open("2.html","","width:300px,height:300px");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="d" style="left:0px; top:0px; position:relative; background-color:green; width:30px; height:30px; "></div>
+        <input  type="button" onclick="f1();" value="开始游戏">
+    <button onclick="op();">弹出窗口</button>
+    </body>
+</html>

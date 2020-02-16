@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>ex</servlet-name>
+        <servlet-class>day1.exception.Test1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ex</servlet-name>
+        <url-pattern>/day1/exception/test1</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <!--<error-code>500</error-code>-->
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/day1/demo2/globalError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/day1/demo2/notFound.jsp</location>
+    </error-page>
+
+
+    <servlet>
+        <servlet-name>c</servlet-name>
+        <servlet-class>day1.cookie.C</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetTime</servlet-name>
+        <servlet-class>day2.练习.GetTime</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>day2.练习.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessionLogin</servlet-name>
+        <servlet-class>day2.session.SessionLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Url</servlet-name>
+        <servlet-class>day2.url.url</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>c</servlet-name>
+        <url-pattern>/day1/cookie/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GetTime</servlet-name>
+        <url-pattern>/day2/getTime</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/day2/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionLogin</servlet-name>
+        <url-pattern>/day2/session/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Url</servlet-name>
+        <url-pattern>/day2/url</url-pattern>
+    </servlet-mapping>
+</web-app>

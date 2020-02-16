@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day2.UserDao">
+    <sql id="userAllCol">
+        id,name,pass,phone,address
+    </sql>
+    <!--注意:and id是user表中的id，id!=null和#{Id}是user对象中的id
+    where标签：可以自动省略and或or
+    if标签：会判断参数中的值是否出现在sql语句中
+    -->
+    <select id="selectByParam" resultType="user">
+        select <include refid="userAllCol"/>
+        from t_user
+        where 1=1
+        <if test="id!=null">
+            and id=#{id}
+        </if>
+        <if test="name!=null">
+            and name=#{name}
+        </if>
+        <if test="pass!=null">
+            and pass=#{pass}
+        </if>
+    </select>
+
+
+    <select id="selectByParam_2" resultType="user">
+        select <include refid="userAllCol"/>
+        from t_user
+        <where>
+        <if test="id!=null">
+            and id=#{id}
+        </if>
+        <if test="name!=null">
+            and name=#{name}
+        </if>
+        <if test="pass!=null">
+            or pass=#{pass}
+        </if>
+        </where>
+    </select>
+    <!--choose标签:一般用于全文检索 相当于if..else if..else..-->
+    <select id="selectByParam_3" resultType="user">
+        select <include refid="userAllCol"/>
+        from t_user
+        <where>
+            <choose>
+                <when test="name!=null">
+                    and name=#{name}
+                </when>
+                <when test="pass!=null">
+                    and pass=#{pass}
+                </when>
+                <otherwise>
+                    and address is null
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!--update之set标签的作用：可以把后面的逗号去掉-->
+    <update id="updateByParm">
+        update t_user
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="pass!=null">
+                pass=#{pass},
+            </if>
+            <if test="address!=null">
+                address=#{address},
+            </if>
+        </set>
+
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="pass!=null">
+                or pass=#{pass}
+            </if>
+        </where>
+    </update>
+
+    <!--trim标签：在语句块前或者后增加或者忽略一块内容 prefix在前增加，suffix在后增加-->
+    <select id="selectByParam_4" resultType="user">
+        select <include refid="userAllCol"/>
+        from t_user
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="id!=null">
+                or id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+        </trim>
+    </select>
+
+    <update id="updateByTrim">
+        update t_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="pass!=null">
+                pass=#{pass},
+            </if>
+            <if test="address!=null">
+                address=#{address},
+            </if>
+        </trim>
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="pass!=null">
+                or pass=#{pass}
+            </if>
+        </where>
+    </update>
+
+     <!--foreach标签遍历-->
+    <select id="selectByIds" resultType="user">
+        select <include refid="userAllCol"/>
+        from t_user where id in
+        <foreach collection="list" item="it" index="i" open="(" close=")" separator=",">
+            #{it}
+        </foreach>
+    </select>
+</mapper>

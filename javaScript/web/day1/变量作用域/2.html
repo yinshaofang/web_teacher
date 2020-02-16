@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //var a = 100;
+        function test() {
+           console.log(a);
+           var a = 10;
+           console.log(a);
+        }
+        function test1() {
+            var a;
+            console.log(a);
+            a = 10;
+            console.log(a);
+        }
+        function test2() {
+            console.log(a);
+
+            a = 100;
+            console.log(a);
+            console.log(window.a);
+            console.log(this.a);
+        }
+        window.test2();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>Said</servlet-name>
+        <servlet-class>day2.生命周期.Said</servlet-class>
+        <init-param>
+            <param-name>blackIp</param-name>
+            <param-value>192.168.1.115,192.168.5.155</param-value>
+        </init-param>
+        <init-param>
+            <param-name>datasource</param-name>
+            <param-value>192.168.1.115</param-value>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>day2.transfer.Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>day2.transfer.Servlet2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Said</servlet-name>
+        <url-pattern>/day2/cycleLife/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/day2/transfer/s1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/day2/transfer/s2</url-pattern>
+    </servlet-mapping>
+   
+    
+    
+    <servlet>
+        <servlet-name>day2_Test1</servlet-name>
+        <servlet-class>day2.request.Test1</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>day2_Test1</servlet-name>
+        <url-pattern>/day2/request/Test1</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

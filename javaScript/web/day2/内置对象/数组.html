@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function mysort(a,b) {
+            return a-b;
+        }
+        function mysort(a,b) {
+            return a.length-b.length;
+        }
+        function f1() {
+            var arr=[121,21,34,19];
+            arr.sort();
+            arr=['aa','b','ccc','rr'];
+            arr.sort(mysort);
+            arr.reverse();
+            console.log(arr);
+
+            var s = arr.join("-");
+            var arr1=['hello','welcome'];
+            var arr2 = arr.concat(arr1);
+            console.log(arr2);
+            var arr3 = arr2.slice(2,4);
+            console.log(arr3);
+        }
+        f1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

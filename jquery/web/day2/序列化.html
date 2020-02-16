@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../day1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+               // $("div").text($("input").serialize());
+                $("div").text($("form input").serialize());//serialize() 用于序列化多个表单元素为字符串
+            });
+        })
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" name="user" placeholder="用户名"><br>
+        <input type="password" name="pass" placeholder="密码"><br>
+    </form>
+    <button>序列化</button>
+    <div></div>
+</body>
+</html>

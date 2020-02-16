@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div span{
+            font-size:120px;
+            color:#ad0;
+        }
+        /*优先级最低*/
+        *{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <span>first span</span>
+<div>
+    <span>two</span>
+    <p>
+        <span>three</span>
+    </p>
+</div>
+</body>
+</html>

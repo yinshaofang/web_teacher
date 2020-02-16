@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../day1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#d").data("index",1);//存数据
+            $("#d").click(function () {
+                alert($("#d").data("index"));//获取数据
+                $("#d").removeData("index");
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="d">aaa</div>
+</body>
+</html>

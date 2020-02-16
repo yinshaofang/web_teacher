@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function Person() {
+        }
+        function f1() {
+            var p = new Person();
+            p.name="a1";
+            p.say=function () {
+                console.log(this.name);
+            }
+            p.say();
+        }
+        f1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

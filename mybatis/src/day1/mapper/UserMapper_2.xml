@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day1.dao.IUserDao">
+    <!--字段比较多 -->
+    <sql id="userCo">
+        id,username,pass,phone,address
+    </sql>
+     <!--防止字段名和实体类中的属性不一致情况 一一映射 resultMap-->
+    <resultMap id="um" type="user">
+        <id property="id" column="id"/>
+        <result property="name" column="username"/>
+    </resultMap>
+     <!--引用sql-->
+    <select id="selectById" resultType="day1.entity.User">
+        select <include refid="userCo"/> from t_user where id=#{a};
+    </select>
+    <!--参数占位符写0,1,2...或param1,param2,...-->
+    <select id="selectByIdAndName" resultType="User">
+        select <include refid="userCo"/> from t_user where id=#{0} and username=#{param2};
+    </select>
+    <!-- 引用resultMap-->
+    <select id="selectByIdAndName_2" resultMap="um">
+        select <include refid="userCo"/> from t_user where id=#{userid} and username=#{username};
+    </select>
+</mapper>

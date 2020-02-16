@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day3.dao.ITemDao">
+    <!--mapper上的二级缓存配置
+    eviction:
+        LRU:最少使用算法,会将最近最少被使用的记录清除掉,再添加新记录
+        FIFO:先进先出，最先入队列的，则最先清除，再添加新记录
+    flushInterval:缓存过期时间设置为20秒
+    readonly:为true则要求实体类实现序列化接口
+    -->
+    <cache/>
+    <!--<cache
+            eviction="LRU"
+            type="org.apache.ibatis.cache.impl.PerpetualCache"
+            flushInterval="15000"
+            size="1024"
+            readOnly="true"/>-->
+
+
+    <insert id="insertItem">
+        insert into t_item(product,num,order_id)values(#{product},#{num},#{order.id})
+    </insert>
+
+    <select id="selectById" resultMap="itemMap">
+        select i.id,num,product,no,o.id oid
+        from t_order o,t_item i
+        where i.id=#{id}
+    </select>
+    <!--方法一：一对一association  复杂情况下必须写-->
+    <resultMap id="itemMap1" type="item">
+        <id property="id" column="id"/>
+        <result property="product" column="product"/>
+        <result property="num" column="num"/>
+        <association property="order" javaType="order">
+            <id property="id" column="oid"/>
+            <result property="no" column="no"/>
+        </association>
+    </resultMap>
+    <!--方法二：替换上面，相同就不写，order不同就改写-->
+    <resultMap id="itemMap" type="item">
+       <result property="order.no" column="no"/>
+        <result property="order.id" column="oid"/>
+    </resultMap>
+</mapper>

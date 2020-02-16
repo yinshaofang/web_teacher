@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../day1/jquery.js"></script>
+    <script>
+        $(function () {
+            $("input").focus(function () {
+                $("input").css("background-color","#ffc");
+            });
+            $("input").blur(function () {
+                $("input").css("background-color","");
+            });
+            $("input").change(function () {
+                console.log($("input").val());
+            });
+            $("#bt2").mouseover(function () {
+                $("input").blur();
+            });
+            $("#bt1").mouseover(function () {
+                $("input").focus();
+            });
+        })
+    </script>
+</head>
+<body>
+    <input type="text"><br>
+    <button id="bt1">获取焦点事件</button>
+    <button id="bt2">失去事件</button>
+</body>
+</html>

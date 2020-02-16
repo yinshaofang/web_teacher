@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day3.dao.IOrderDao">
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into t_order (no) values(#{no})
+    </insert>
+    <!--
+    select o.id,o.no,i.id i_id,i.product,i.num
+    from t_order o,t_item i
+    where o.id=i.order_id and o.id=?
+    -->
+    <sql id="orderCol">
+        o.id,o.no,i.id i_id,i.product,i.num
+    </sql>
+    <select id="selectById" resultMap="orderMap">
+        select <include refid="orderCol"/>
+        from t_order o,t_item i
+        where  o.id=i.order_id and o.id=#{id}
+    </select>
+
+    <resultMap id="orderMap" type="order">
+        <id property="id" column="id"/>
+        <result property="no" column="no"/>
+        <!--一对多 collection 这里用ofType 或javaType,表示集合中的元素是item类型-->
+        <collection property="items" javaType="item">
+            <id property="id" column="i_id"/>
+            <result property="product" column="product"/>
+            <result property="num" column="num"/>
+        </collection>
+
+    </resultMap>
+</mapper>

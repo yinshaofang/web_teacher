@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<class>
+    <stu name="刘德华">
+        <name>刘德华</name>
+        <sex>男</sex>
+        <age>2</age>
+    </stu>
+
+    <stu name="袁崇焕">
+        <sex>男</sex>
+        <age>22</age>
+    </stu>
+    <hello name="hello123">
+
+    </hello>
+</class>

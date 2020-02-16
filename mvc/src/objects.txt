@@ -1,0 +1,2 @@
+userService=service.impl.UserServiceImp
+userDao=dao.impl.UserDaoImpl

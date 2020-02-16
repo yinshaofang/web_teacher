@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            var inps=$("input[type=text]");
+            inps=$("input[type=text][name!=abc]");
+            console.log(inps);
+        });
+    </script>
+</head>
+<body>
+    <input type="text" value="hello" name="abc"><br>
+    <input type="button"><br>
+    <input type="text"><br>
+    <input type="file"><br>
+    <input type="text" name="abc"><br>
+    <input type="password"><br>
+</body>
+</html>

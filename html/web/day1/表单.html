@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是我的表单</title>
+</head>
+<body>
+    <form action="2.html" method="get">
+        <label for="username">用户：</label>
+        <input type="text" placeholder="输入用户名" id="username" name="username">
+        <input type="password" size="100" placeholder="输入用户名">
+        <input type="radio"><br>
+        <!--disable不可修改，不能提交，readonly不可修改，可提交，hidden会提交数据，但用户不可见-->
+        <input  disabled value="15.78￥" name="price1"><br>
+        <input  readonly value="15.78￥" name="price2"><br>
+        <input hidden value="1" placeholder="这个隐藏" name="productId"><br>
+        <input type="button" value="按钮"><br>
+        <input type="radio" name="sex" checked="checked" value="男">男<br>
+        <input type="radio" name="sex" value="女">女<br>
+        爱好：
+        <input type="checkbox" name="hobit" value="音乐">音乐&nbsp;&nbsp;
+        <input type="checkbox" name="hobit" value="游戏">游戏<br>
+
+        <input type="file" name="附件"><br>
+
+<hr>
+        籍贯:
+        <select name="city" size="5"  multiple>
+            <optgroup label="江苏">
+                <option value="nj">南京</option>
+                <option value="sz" selected>苏州</option>
+                <option value="nt">南通</option>
+                <option value="wx">无锡</option>
+            </optgroup>
+            <optgroup label="山东">
+                <option value="rz">日照</option>
+                <option value="jn">济南</option>
+                <option value="qd">青岛</option>
+            </optgroup>
+
+        </select>
+        <input type="submit"><br>
+        <input type="reset"><br>
+
+    </form>
+</body>
+</html>

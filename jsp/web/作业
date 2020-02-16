@@ -1,0 +1,23 @@
+作业1：
+    一个网站要记录在线人数，只要进入此网站就算在线，用户点退出就算下线，要求用监听器实现此功能，并在页面中显示在线人数
+    提示:创建session,用户点退出，说明session无效了，
+作业2：
+    遍历10到100之间的所有偶数并显示，每显示三个就换行，并让第三个为红色
+    10 12 14
+    16 18 20
+
+作业3：
+    从servlet中获取List集合，集合中存放的是多个Product产品，每项产品包括(int id,String name,double price),
+    要求在jsp页面中用foreach遍历出集合，并以table标签的形式展示
+
+
+作业4：
+    用servlet和jquery,jsp实现文件上传，要求如果选中一张图片后，图片马上会在img标签中加载出来,
+    也就是有预览
+    <img src="${src}"
+    这里的src值是servlet通过session.setAttribut("src",path);
+
+作业4：
+    1.验证用户登录，如果用户未登录，就跳转到login.jsp
+    2.设置请求和响应的字符编码
+    3.验证所有请求的url路径，排除login.jsp和login.do

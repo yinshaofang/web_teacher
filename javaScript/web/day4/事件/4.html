@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var data = {
+            "请选择":["请选择"],
+            "江苏":["徐州","南京","苏州"],
+            "四川":["成都"],
+            "山东":["济南","青岛"]
+        };
+        onload=function() {
+            //初始化省份
+            for(var i in data){
+                loadValue("pro",i);
+            }
+        };
+
+        function  loadValue(id,value) {
+            var dom = document.getElementById(id);
+            var o = new Option(value);
+            dom.options[dom.length]=o;
+        }
+        function changeCity() {
+            //pro.value:是在省中选择的值
+            var arr = data[pro.value];
+            city.length=0;
+            //i是数组下标
+            for(var i in arr){
+                loadValue("city",arr[i]);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <!--省-->
+    <select id="pro" name="pro" onchange="changeCity()"></select>
+    <!--城市-->
+    <select id="city">
+        <option>请选择</option>
+    </select>
+</body>
+</html>

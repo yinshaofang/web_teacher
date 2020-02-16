@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#load").click(function () {
+                $("#txt").val("hello1");//jquery设置
+                txt.value="hello2";//dom对象
+                $("input[type=text]").val("123");
+                console.log($("#txt").val(),txt.value);
+
+                //$("img").attr("src","teacher.gif");
+                $("img").attr({"src":"teacher.gif","width":"30%"});
+                //$("#check").attr("checked",true);
+                $("#check").prop("checked",true);//第二个参数为字符串类型时，可以解析为true 建议true
+
+                $("#o2").prop("selected",true);
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="javascript:;" id="load">load</a><br>
+    <input id="txt" value="abc"><br>
+    <input type="checkbox" id="check"><br>
+    <img id="img"><br>
+    <select name="select">
+        <option value="one" id="o1">1</option>
+        <option value="two" id="o2">2</option>
+    </select>
+    <div id="d"></div>
+</body>
+</html>

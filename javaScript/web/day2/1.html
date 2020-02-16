@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+
+        function f1() {
+            //通过id获取标签
+            var a = document.getElementById("abc");
+
+            //返回数组，数组中元素为所有叫name1的标签
+            a = document.getElementsByName("name1");
+            //通过a[0]或a["name1"]获取某个元素，如果有多个叫name1的，则a["name1"]本身也是数组
+
+
+            /* 获取全部表单 */
+            var obj = document.getElementsByTagName("form");
+
+            /*所有的表单都在forms集合中，不是数组，有点像数组  */
+            obj = document.forms;
+            console.log(typeof obj,"obj="+obj);
+
+            for ( var i in obj) {
+                console.log(obj[i]);
+            }
+            console.log("====================")
+            for ( var i = 0; i < obj.length; i++) {
+                console.log(obj[i].innerHTML);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form action="#" name="form1">
+        <input type="text" name="name1" />
+        <input type="text" name="name01" />
+    </form>
+    <form action="#" name="form2">
+        name2<input type="text" name="name2" id="abc" />
+    </form>
+    <a href="javascript:;" onclick="f1();">
+        <font color="red" size="29">点击</font>
+    </a>
+</body>
+</html>

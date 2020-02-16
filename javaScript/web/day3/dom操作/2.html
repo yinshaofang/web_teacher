@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function f() {
+            var obj = document.createElement("div");
+            var text = document.createTextNode("hello");
+            obj.appendChild(text);
+
+            var body = document.getElementById("b");
+            //body.appendChild(obj);
+            //var a1 = document.getElementById("a1");
+            //body.insertBefore(obj,a1);在a1前插入
+            //body.replaceChild(obj,a1);//把a1替换成obj
+            //body.removeChild(a1);
+            //a1.remove();作用是删除自己，可能不兼容
+            //body.innerHTML=body.innerHTML+"<div>welcome to NJ</div>";
+            console.log(a1.innerHTML+"----------"+a1.innerText);
+            body.innerText=body.innerText+"<div>welcome to NJ</div>";
+            var s = "alert('hello everyone')";
+            eval(s);
+        }
+    </script>
+</head>
+<body id="b">
+    <a href="javascript:;" id="a1" onclick="f();">test</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function add1(a,b) {
+            console.log(arguments.length);
+            console.log('a='+a,'b='+b);
+            for(var i=0;i<arguments.length;i++){
+                console.log(arguments[i]+',');
+            }
+            var rs = a+b;
+            return rs;
+        }
+        var r = add(3,4,5);
+        console.log(r);
+
+        function add(a,b) {
+            if(!a){
+                a=0;
+            }
+            if(!b){
+                b=0;
+            }
+            return a+b;
+        }
+        console.log(add());
+    </script>
+</head>
+<body>
+    <input type="button" value="test" onclick="add(1)">
+</body>
+</html>

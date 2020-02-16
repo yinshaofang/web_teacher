@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>c1</servlet-name>
+        <servlet-class>day3.context.C1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>c2</servlet-name>
+        <servlet-class>day3.context.C2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>c1</servlet-name>
+        <url-pattern>/day3/context/c1</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>c2</servlet-name>
+        <url-pattern>/day3/context/c2</url-pattern>
+    </servlet-mapping>
+    
+    <context-param>
+        <param-name>a1</param-name>
+        <param-value>123</param-value>
+    </context-param>
+    <context-param>
+        <param-name>a2</param-name>
+        <param-value>456</param-value>
+    </context-param>
+</web-app>

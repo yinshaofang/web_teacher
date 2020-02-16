@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function fo(obj) {
+            msg.innerHTML="";
+        }
+        function checkpass() {
+            if(pass.value<6){
+                msg.innerHTML="密码长度必须大于等于6！"
+                pass.value="";
+            }
+        }
+        function check() {
+            if(user.value==""){
+                msg.innerHTML="用户名不能为空";
+                return false;
+            }
+            /*reg=/^1[3589][0-9]{9}$/;
+            * */
+            if(phone.value==""){
+                msg.innerHTML="电话号码不合理";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <h1>注册</h1>
+        <form action="../正则/1.html" onsubmit="return check();">
+            <input name="username" id="user" onfocus="fo(this);"><br>
+            <input type="password" id="pass" onblur="checkpass(this)"><br>
+            <input type="tel" name="phone" id="phone" onfocus="fo(this);"><br>
+            <input type="submit" value="注册">
+        </form>
+        <div id="msg" style="color:red;"></div>
+    </div>
+</body>
+</html>

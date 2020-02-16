@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            //jQuery的方法:text()：插入字符串  html():插入标签和字符串
+            // innerHTML:js的插入方法 等同于jQuery的html()
+            console.log($("#id1")[0].innerHTML,$("#id1").get(0).innerHTML,id1.text);
+            console.log($(id1).html("hello"),$(id1).text("<font>how are you</font>"));
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="id1" >mydiv</div>
+</body>
+</html>

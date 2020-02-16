@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        onload=function () {
+            a1.onclick=f1;
+        }
+        function f1() {
+            alert("...");
+        }
+
+        function advertise() {
+            //location="1.html";
+            open("1.html");
+        }
+        function closeAd(e) {
+            d.style.display="none";
+            e.cancelBubble=true;
+        }
+
+    </script>
+</head>
+<body>
+    <a id="a1" href="javascript:;">动态添加事件</a>
+    <div id="d" style="width:200px;height:200px;background-color: purple;" onclick="advertise();">
+        <a href="javascript:;"style="float: right;" onclick="closeAd(event);">X</a>
+    </div>
+</body>
+</html>

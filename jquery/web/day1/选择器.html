@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <title>Title</title>
+    <script>
+        $(function () {
+            //id选择器
+            var d=$("#d1");
+            //标签选择器  实质上获取是一个数组
+            var arr = $("div");
+            console.log(arr.length);//返回数组的长度
+            console.log("不加eq()方法，数组中默认只取第一个:"+arr.html());
+            //遍历获取
+            for(var i=0;i<arr.length;i++){
+                console.log(arr[i].innerHTML);//arr[i]转化为dom对象
+                console.log(arr.eq(i).html());//jquery对象 加eq() 默认全取
+            }
+            console.log("===============类选择器=============");
+            //类选择器
+            arr=$(".s1");
+            //其它
+            arr=$("p.s1");//复合选择器 满足二者条件
+            console.log(arr.eq(0).html());//pppp
+            arr=$("*");//通用
+            arr=$("div,.s1,#d1");//并集
+            console.log(arr.length);//5个
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="d1">div1</div>
+    <div id="d2">div2</div>
+    <span class="s1" id="sp1">span1</span>
+    <span class="s1">span2</span>
+    <p class="s1">pppp</p>
+</body>
+</html>

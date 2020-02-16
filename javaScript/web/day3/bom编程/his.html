@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function f1() {
+            console.log(navigator.userAgent);
+            //alert(navigator.userAgent);
+        }
+
+        function f2() {
+            history.back();
+        }
+        function f3() {
+            //history.forward();
+            history.go(1);
+        }
+        function f4() {
+            location.href="1.html";
+        }
+    </script>
+
+</head>
+<body>
+    <input type="button" value="浏览信息" onclick="f1();"><br>
+    <input type="button" value="上一页" onclick="f2();"><br>
+    <input type="button" value="下一页" onclick="f3();"><br>
+    <input type="button" value="链接" onclick="f4();"><br>
+</body>
+</html>

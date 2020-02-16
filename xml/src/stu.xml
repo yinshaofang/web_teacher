@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exam> 
+  <stu> 
+    <name>刘德华</name>  
+    <sex>男</sex>  
+    <sex>男</sex>  
+    <location>西安</location>  
+    <grage>98</grage> 
+  </stu>  
+  <stu> 
+    <name>李四</name>  
+    <grage>60</grage> 
+  </stu> 
+</exam>

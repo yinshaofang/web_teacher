@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper 唯一个namespace-->
+<mapper namespace="day1.dao.UserDao">
+    <!--此处id不能重复，本质上就是将来生成的类中的方法名  #{} 预编译 防止SQL注入  ${} statement -->
+    <select id="selectById" resultType="day1.entity.User">
+        select id,name,pass,phone,address from t_user
+        WHERE id=#{a}
+    </select>
+
+    <select id="selectAll" resultType="day1.entity.User">
+        select id,name,pass,phone,address from t_user
+    </select>
+
+    <select id="selectByName" resultType="day1.entity.User">
+        select id,name,pass,phone,address from t_user
+        where name like #{a};
+    </select>
+    <!--获取主键useGeneratedKeys='true'-->
+    <insert id="inserUser" useGeneratedKeys="true"  keyProperty="id">
+        INSERT into t_user(name,pass,phone,address) VALUES (#{name},#{pass},#{phone},#{address});
+    </insert>
+</mapper>

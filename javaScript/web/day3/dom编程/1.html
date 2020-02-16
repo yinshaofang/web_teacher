@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function f1() {
+            var a = document.getElementById("abc");
+            a = document.getElementsByName("n2");
+            console.log(typeof a);
+            console.log(a[0]);
+            console.log("========================================")
+            a = document.getElementsByTagName("form");
+            a=document.forms;
+            for(var i=0;i<a.length;i++){
+                console.log(a[i].innerHTML);
+            }
+            console.log("***********",a["form1"]["n0"].value);
+            console.log("========================================")
+            console.log(a[0].getElementsByTagName("input")[0].value);
+            console.log(document.form1.a1.value);
+        }
+    </script>
+</head>
+<body>
+    <form action="#" name="form1">
+        name0:<input id="a1" name="n0"><br>
+        name1:<input  name="n1"><br>
+    </form>
+    <form action="#" name="form2">
+        name2<input  name="n2" id="abc"><br>
+    </form>
+
+    <a id="hello" href="javascript:;" onclick="f1();">点击</a>
+</body>
+</html>

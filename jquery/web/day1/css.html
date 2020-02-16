@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <style>
+        .color{
+            background-color: red;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            //$("div").addClass("color");//增加样式
+            //$("div p:last").addClass("color");//div后代p最后一个标签
+            //$("div p:eq(1)").addClass("color");//伪类：下标为1的标签（默认有0）
+            //$("p:even").addClass("color");
+            //$("div p:odd").addClass("color");//奇数
+
+            console.log($("div p:odd").css("background-color"));
+            //$("div p:odd").css("background-color","#FF0");
+            //一次添加多个样式
+            $("div p:odd").css({"background-color":"#FF0","height":"100px"});//json格式
+
+            $("#a1").click(function () {//点击事件
+                //$("div p:odd").removeClass("color");//删除
+                $("div p:odd").css({"background-color":"","height":""});
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>hello</p>
+    <div >
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <a href="javascript:;" id="a1">删除样式</a>
+</body>
+</html>

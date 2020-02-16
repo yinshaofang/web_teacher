@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var a = 10;
+        function test(){
+            a = 100;
+            console.log("a="+a);
+
+            console.log("a="+a);
+            //程序在执行前会先遍历该方法的变量声明代码，并把其生命周期提升到方法开头
+            var a;
+        }
+        test();
+        alert("a="+a)
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

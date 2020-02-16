@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .c{
+            color: red;
+        }
+    </style>
+
+    <script>
+        function f(obj) {
+            obj.parentNode.className="";
+            var arr = obj.parentNode.childNodes;
+            for(i=0;i<arr.length;i++){
+                arr[i].className="";
+            }
+            obj.className="c";
+        }
+    </script>
+</head>
+<body>
+    <ul id="u1" >
+        <li>item1</li>
+        <li>item2</li>
+        <!--注释-->
+        <li id="i3" >item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <a href="javascript:;" onclick="f(o);">当前节点</a>
+
+    <a href="javascript:;" onclick="f(o.parentNode);">父节点</a>
+    <a href="javascript:;" onclick="f(o.previousSibling.previousSibling.previousSibling.previousSibling);">上一节点</a>
+    <a href="javascript:;" onclick="f(o.nextSibling.nextSibling);">下一节点</a>
+    <a href="javascript:;" onclick="f(o.parentNode.lastChild.previousSibling);">最后节点</a>
+    <a href="javascript:;" onclick="f(o.parentNode.firstChild.nextSibling);">头节点</a>
+    <script>
+        var o = document.getElementById("i3");
+    </script>
+</body>
+</html>

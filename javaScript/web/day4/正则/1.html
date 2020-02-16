@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1() {
+            var s = "Ab";
+            var reg = /[abc]/;//有方法为test
+            reg=/^[abc]$/;
+            reg=/a/i;
+            reg=/a/ig;//忽略大小写全局替换
+
+            s="asdfjhAfaaadsjk";
+            s = s.replace(reg,"X");
+            console.log(reg.test(s));
+            reg=/x(?=b)/g;
+            s="xaxbxcxb";
+            s=s.replace(reg,"Y");
+            console.log("s="+s);
+            reg=/x/;
+            console.log(s.search(reg));
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="f1();">执行</button>
+</body>
+</html>

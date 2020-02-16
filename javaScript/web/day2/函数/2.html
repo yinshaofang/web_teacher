@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function f1() {
+            alert("调用了吗？")
+           return 1;
+        }
+        function f2() {
+            var a = f1;
+            a=function () {
+                alert("执行方法");
+                return 1;
+            };
+        }
+        f2();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

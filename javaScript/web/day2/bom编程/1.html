@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function f1() {
+            alert("页面加载完成!");
+            open("../1.html","","width=300px,height=200px");
+        }
+
+        function f2() {
+            open("../2.html","","width=300px,height=200px");
+        }
+
+        function f3() {
+            var w = open("../3.html","_blank","width=300px,height=200px,left=50px,top=250px");
+            //3秒后把上面窗口自动关闭
+            setTimeout(function () {
+                w.close();
+            },3000);
+        }
+
+    </script>
+</head>
+<body onload="f1();" onunload="f2();">
+    <a href="javascript:;" onclick="f3();">打开</a>
+    <input>
+</body>
+</html>

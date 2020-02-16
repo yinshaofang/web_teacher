@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../day1/jquery.js"></script>
+    <script>
+        $(function () {
+           $("#more").click(f2);
+           $("div a[name='delete']").click(del);
+        });
+        var i=0;
+        function f1() {
+            var d=$("#d").clone(true);//复制多个文件上传
+            $("div:last").after(d);
+            //方法一
+            //$("input:last").val("");
+
+            //方法二
+            d.attr("id","d"+i);
+            //#d0 input
+            $("#d"+i+" input").val("");
+        }
+        function f2() {
+            var v=$("div:last input").val();//获取值
+            //判断如果为空
+            if(v==''){
+                alert("请添加文件")
+                return;
+            }
+            f1();//不为空调用f1方法
+        }
+        //删除
+        function del() {
+//            if(this.parentNode.id=='d'){//dom对象解决方法
+//                return;
+//            }
+            if($(this).parent().attr("id")=='d'){//jQuery对象解决方法
+                return;
+            }
+            $(this).parent().remove();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="上传更多" id="more">
+    <div id="d">
+        文件：<input type="file">
+        <a href="javascript:;" name="delete">删除</a>
+    </div>
+</body>
+</html>

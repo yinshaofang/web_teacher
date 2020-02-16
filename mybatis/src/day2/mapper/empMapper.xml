@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day2.dao.IEmpDao">
+    <insert id="insertEmp">
+        insert into emp (name,salary,dept_id)values (#{name},#{salary},#{dept.id})
+    </insert>
+
+    <resultMap id="em" type="emp">
+        <result property="id" column="id"/>
+        <result property="name" column="ename"/>
+        <result property="salary" column="salary"/>
+        <!--对应emp类中的dept属性 javaType：day2.emtity.Dept 指的dept是什么类型-->
+        <association property="dept" javaType="dept">
+            <result property="id" column="dept_id"/>
+            <result property="name" column="dname"/>
+        </association>
+    </resultMap>
+
+    <select id="selectAllEmp" resultMap="em">
+        select e.id id,e.name ename,salary,dept_id,d.name dname
+        from emp e,dept d
+        where e.dept_id=d.id
+    </select>
+</mapper>
